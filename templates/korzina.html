@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://bootstraptema.ru/snippets/information/2016/etp/shieldui-all.min.css" />
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="https://bootstraptema.ru/snippets/information/2016/etp/shieldui-all.min.js"></script>
+<script type="text/javascript" src="https://bootstraptema.ru/snippets/information/2016/etp/jszip.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</br></br></br></br></br></br>
+<div class="container">
+
+<h1 class="text-center">Моя корзина</h1>
+
+<div class="row">
+
+ <button id="exportButton" class="btn btn-lg btn-danger center-block">Оплатить</button>
+
+<hr />
+
+<div class="table-responsive">
+
+ <table id="exportTable" class="table table-bordered table-hover">
+ <thead>
+ <tr>
+ <th>Название</th>
+ <th>Том</th>
+ <th>Цена</th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for i in tovar %}
+ <tr>
+   {% for j in i %}
+ <td>{{j}}</td>
+   {% endfor %}
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+
+</div><!-- /.table-responsive -->
+</div><!-- /.row -->
+</div><!-- /.container -->
+{% endblock %}
