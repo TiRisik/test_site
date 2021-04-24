@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href = 'static/css/style.css'>
+</br></br></br></br></br>
+<div class="container">
+  <form class="form" method="post">
+ <div id="products" class="row list-group">
+  {% for i in spisok%}
+ <div class="item col-xs-4 col-lg-4">
+ <div class="thumbnail">
+ <img class="group list-group-image" src={{i[0]}} alt="1" />
+ <div class="caption">
+ <h4 class="group inner list-group-item-heading">{{i[3]}}</h4>
+ <p class="group inner list-group-item-text">
+{{i[1]}}
+</p>
+ <div class="row">
+ <div class="col-xs-12 col-md-6">
+ <p class="lead">{{i[2]}} p</p>
+ </div>
+ <div class="col-xs-12 col-md-6">
+ <a type="submit" class="btn btn-primary" name="'button" value={{i[3]}}>В корзину</a>
+  <a class="btn btn-success" href="#">Подробнее</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+  {% endfor %}
+ </div>
+  </form>
+</div>
+{% endblock %}

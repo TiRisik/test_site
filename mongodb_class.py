@@ -16,3 +16,4 @@ class Manga(DynamicDocument):
     price = IntField()
     about = StringField()
     photo = ImageField()
+    category = StringField()
