@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base.html" %}
+
+{% block content %}
  <link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
 <link rel="stylesheet" href="https://bootstraptema.ru/snippets/menu/2016/slidemenu/slidemenu.css" />
-</head>
-<body>
 <form class="form" method="post">
  <div class="thumbnail">
  <img class="group list-group-image" src={{spisok[0]}} alt="1" />
@@ -21,10 +17,10 @@
  </div>
  <div class="col-xs-12 col-md-6">
  <button type="submit" class="btn btn-primary" name="'button" value={{spisok[3]}}>В корзину</button>
+  <input type="text" class="form-control" id="number" placeholder="Введите количество" name="integer">
  </div>
  </div>
  </div>
  </div>
 </form>
-</body>
-</html>
+{% endblock %}

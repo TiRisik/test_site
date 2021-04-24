@@ -8,7 +8,7 @@ class User(DynamicDocument):
     first_name = StringField()
     last_name = StringField()
     manager = BooleanField()
-    korzina = ListField()
+    korzina = ListField(ListField(StringField()))
 
 
 class Manga(DynamicDocument):

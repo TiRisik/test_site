@@ -26,13 +26,14 @@
  <tr>
  <th>Название</th>
  <th>Цена</th>
+  <th>Количество</th>
  </tr>
  </thead>
  <tbody>
  {% for i in tovar %}
  <tr>
    {% for j in i %}
- <td>{{j}</td>
+ <td>{{j}}</td>
    {% endfor %}
  </tr>
  {% endfor %}

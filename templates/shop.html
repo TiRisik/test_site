@@ -11,7 +11,7 @@
   {% for i in spisok%}
  <div class="item col-xs-4 col-lg-4">
  <div class="thumbnail">
- <img class="group list-group-image" src={{i[0]}} alt="1" />
+ <img class="group list-group-image" src='{{i[0]}}' alt="1" />
  <div class="caption">
  <h4 class="group inner list-group-item-heading">{{i[3]}}</h4>
  <p class="group inner list-group-item-text">
@@ -22,7 +22,7 @@
  <p class="lead">{{i[2]}} p</p>
  </div>
  <div class="col-xs-12 col-md-6">
- <button type="submit" class="btn btn-primary" name="'button" value={{i[4]}}>Подробнее</button>
+ <button type="submit" class="btn btn-primary" name="button" href={{i[4]}}>Подробнее</button>
  </div>
  </div>
  </div>
