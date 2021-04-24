@@ -57,17 +57,28 @@ def senen():
                 about = result.about[:175] + '...'
                 name = result.name
                 price = result.price
-                spisok.append([f'static/img/senen/{i}.jpg', about, price, name])
+                spisok.append([f'static/img/senen/{i}.jpg', about, price, name, f'http://127.0.0.1:8080/senen/{i}'])
                 i += 1
             return render_template('shop.html', spisok=spisok)
         else:
             return '<h1>В данной категории ещё нет товаров</h1>'
+
+
+
+@app.route("/senen/<int:i>", methods=['GET', 'POST'])
+def senen_manga(i):
+    if request.method == 'GET':
+        results = list(Manga.objects(category='senen'))
+        about = results[i - 1].about
+        name = results[i - 1].name
+        price = results[i - 1].price
+        photo = results[i - 1].photo.read()
+        spisok = [f'static/img/senen/{i}.jpg', about, price, name]
+        return render_template('manga.html', spisok=spisok)
     elif request.method == 'POST':
-        print(request.form['button'])
-        for i in spisok:
-            if request.form['button'] == i[3]:
-                result_user[0].tovar.append([i[3], i[2]])
-                print(result_user[0].tovar)
+        result_user[0].korzina.append([i[3], str(i[2])])
+        print(result_user[0].korzina)
+
 
 
 @app.route("/main")
@@ -75,7 +86,7 @@ def main():
     return render_template('main.html')
 
 
-@app.route("/shop/shojo", methods=['GET', 'POST'])
+@app.route("/shojo", methods=['GET', 'POST'])
 def shojo():
     global result_user
     spisok = []
@@ -100,8 +111,8 @@ def shojo():
         print(request.form['button'])
         for i in spisok:
             if request.form['button'] == i[3]:
-                result_user[0].tovar.append([i[3], i[2]])
-                print(result_user[0].tovar)
+                result_user[0].korzina.append([i[3], i[2]])
+                print(result_user[0].korzina)
 
 
 numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
